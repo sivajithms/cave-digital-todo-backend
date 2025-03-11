@@ -10,6 +10,8 @@ dotenv.config();
 // @access  Public
 export const signup = async (req, res) => {
   const { name, email, password } = req.body;
+  console.log(req.body);
+  
 
   try {
     // Check if user already exists
@@ -38,6 +40,8 @@ export const signup = async (req, res) => {
 // @access  Public
 export const login = async (req, res) => {
   const { email, password } = req.body;
+  console.log(req.body);
+  
 
   try {
     // Find user by email
