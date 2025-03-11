@@ -17,6 +17,8 @@ connectDB();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => res.send("hello world"));
+
 app.use('/user', userRouter);
 app.use('/tasks', taksRouter)
 
