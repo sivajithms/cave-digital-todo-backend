@@ -15,7 +15,12 @@ export const createTask = async (req, res) => {
 
 export const getTasks = async (req, res) => {
   try {
-    const tasks = await Task.find();
+    const userId = req.body.id
+    if (!userId) {
+      return res.status(400).json({ message: "User ID is required" });
+    }
+
+    const tasks = await Task.find({ userId }); 
     res.status(200).json(tasks);
   } catch (error) {
     res.status(500).json({ message: error.message });
